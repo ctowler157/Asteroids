@@ -13,19 +13,19 @@
   <body>
     <canvas id="canvas"></canvas>
 
+    <script src="lib/utils.js"></script>
     <script src="lib/movingObject.js"></script>
+    <script src="lib/asteroid.js"></script>
     <script src="lib/game.js"></script>
+    <script src="lib/gameView.js"></script>
     <script>
       var canvasEl = document.getElementById("canvas");
-      canvasEl.height = window.innerHeight;
-      canvasEl.width = window.innerWidth;
+      canvasEl.height = 800;
+      canvasEl.width = 800;
       var ctx = canvasEl.getContext("2d");
-      var obj = new Asteroids.MovingObject(
-        { pos: [100, 100], vel: [50, 50], radius: 10, color: "#00FF00" }
-      );
-      obj.draw(ctx);
-      obj.move();
-      setInterval(obj.draw(ctx).bind(obj), 2000);
+      var game = new Asteroids.Game();
+      var gameView = new Asteroids.GameView(game, ctx);
+      gameView.start();
     </script>
   </body>
 </html>

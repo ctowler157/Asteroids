@@ -31,6 +31,6 @@
     var xVel = this.vel[0];
     var yVel = this.vel[1];
 
-    this.pos = [(xPos + xVel), (yPos, yVel)];
+    this.pos = [(xPos + xVel), (yPos + yVel)];
   };
 })(this);
