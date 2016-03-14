@@ -6,6 +6,7 @@
     this.vel = options.vel;
     this.radius = options.radius;
     this.color = options.color;
+    this.game = options.game;
   };
 
   MovingObject.prototype.draw = function (ctx) {
@@ -30,7 +31,17 @@
 
     var xVel = this.vel[0];
     var yVel = this.vel[1];
+    var newPos = [(xPos + xVel), (yPos + yVel)];
+    this.pos = this.game.wrap(newPos);
+  };
 
-    this.pos = [(xPos + xVel), (yPos + yVel)];
+  MovingObject.prototype.isCollidedWith = function (otherObject) {
+    var collisionOptions = {
+      pos1: this.pos,
+      pos2: otherObject.pos,
+      rad1: this.radius,
+      rad2: otherObject.radius
+    };
+    return Asteroids.Util.isCollided(collisionOptions);
   };
 })(this);

@@ -18,4 +18,13 @@
     }
     return [(xDir * length), (yDir * length)];
   };
+
+  Util.isCollided = function (collisionOptions) {
+    var dX = collisionOptions.pos1[0] - collisionOptions.pos2[0];
+    var dY = collisionOptions.pos1[1] - collisionOptions.pos2[1];
+    var rads = collisionOptions.rad1 + collisionOptions.rad2;
+    var dist = Math.sqrt(Math.pow(dX, 2) + Math.pow(dY, 2));
+
+    return rads > dist;
+  };
 })(this);

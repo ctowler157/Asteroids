@@ -6,8 +6,8 @@
 
 
     var COLOR = "#77DDEE";
-    var RADIUS = 15;
-    var SPEED = 10;
+    var RADIUS = 10;
+    var SPEED = 2;
     options.color = COLOR;
     options.radius = RADIUS;
     options.vel = Util.randomVec(SPEED);
